@@ -8,7 +8,8 @@ window.addEventListener("load", function() {
    const cargoMass = document.getElementById("cargoMass");
    
    formSubmit.addEventListener("click", function(event){
-      event.preventDefault()
+      event.preventDefault();
+      console.log(event);
       //do validation stuff
       formCheck();
       //Submit form?
