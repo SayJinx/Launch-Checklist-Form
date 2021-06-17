@@ -26,8 +26,9 @@ window.addEventListener("load", function() {
          alert("All fields are required")
       };
       //validate names are not numbers
-      if(typeof pilotNameValue === 'number' || typeof copilotNameValue === 'number') {
+      if(!isNaN(pilotNameValue) || !isNaN(copilotNameValue)) {
          alert("Crew names are not valid")
+         console.log("hello")
       };
       if(isNaN(fuelLevelValue) || isNaN(cargoMassValue)) {
          alert("Fuel Level and Cargo Mass must be numbers")
