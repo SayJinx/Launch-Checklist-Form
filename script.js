@@ -12,9 +12,12 @@ window.addEventListener("load", function() {
       console.log(event);
       //do validation stuff
       formCheck();
-      //Submit form?
+      //Submit form
+      launchReqs();
    });
    
+//validation
+
    function formCheck() {
       const pilotNameValue = pilotName.value
       const copilotNameValue = copilotName.value
@@ -34,6 +37,46 @@ window.addEventListener("load", function() {
          alert("Fuel Level and Cargo Mass must be numbers")
       };
    };
+
+//faulty items
+
+   function launchReqs() {
+      const pilotNameValue = pilotName.value
+      const copilotNameValue = copilotName.value
+      const fuelLevelValue = fuelLevel.value
+      const cargoMassValue = cargoMass.value
+
+      //update pilot
+      document.getElementById("pilotStatus").innerHTML = `Captain ${pilotNameValue} is registered and ready for launch.`
+
+      //update copilot
+      document.getElementById("copilotStatus").innerHTML = `Co-Pilot ${copilotNameValue} is registered and ready for launch.`
+
+      //check fuel
+      if(fuelLevelValue < 10000) {
+         document.getElementById("fuelStatus").innerHTML = `Not enough fuel for journey`
+         document.getElementsByClassName("h2").innerHTML = `Shuttle is not ready for launch`
+      }
+      else if(fuelLevelValue > 1000) {
+         document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`
+         document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch!`
+         document.getElementById("launchStatus").style.color = "green";
+      };
+
+      //check cargo
+      if(cargoMassValue > 10000) {
+         document.getElementById("cargoStatus").innerHTML = `Cargo weight exceeds tolerances`;
+         document.getElementById("launchStatus").innerHTML = `Shuttle is not ready for launch`;
+         document.getElementById("launchStatus").style.color = "red";
+      }
+      else if(cargoMassValue < 1000) {
+         document.getElementById("cargoStatus").innerHTML = `Cargo mass low enough for launch`;
+         document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch!`
+         document.getElementById("launchStatus").style.color = "green";
+      };
+
+      document.getElementById("faultyItems").style.visibility = "visible";
+   }
 
 }
 )
