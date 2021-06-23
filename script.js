@@ -154,11 +154,11 @@ window.addEventListener("load", function() {
 
       //update cargo
 
-      if(fuelCheck = true) {
-         document.getElementById("massStatus").innerHTML = `Cargo level low enough for launch`
+      if(massCheck = true) {
+         document.getElementById("cargoStatus").innerHTML = `Cargo level low enough for launch`
       }
-         else if(fuelCheck = false) {
-            document.getElementById("fuelStatus").innerHTML = `Mass too high for journey`
+         else if(massCheck = false) {
+            document.getElementById("cargoStatus").innerHTML = `Mass too high for journey`
          };
       
       //check fuel
