@@ -6,6 +6,7 @@ window.addEventListener("load", function() {
    const copilotName = document.getElementById("copilotName");
    const fuelLevel = document.getElementById("fuelLevel");
    const cargoMass = document.getElementById("cargoMass");
+
    let pilotCheck = false
    let copilotCheck = false
    let fuelCheck = false
@@ -86,8 +87,8 @@ window.addEventListener("load", function() {
          else if(isNaN(cargoMassValue)) {
             massCheck = false
          }
-         else if(massCheck > 10000) {
-            fuelCheck = false
+         else if(cargoMassValue > 10000) {
+            massCheck = false
          }
          else {
             massCheck = true
@@ -95,7 +96,7 @@ window.addEventListener("load", function() {
          console.log(massCheck)
 
 
-      //validate names are not numbers
+      //Removed these lines to better address Katie's comments
      /* if(!isNaN(pilotNameValue)) {
          alert("Crew names are not valid")
          document.getElementById("pilotStatus").innerHTML = `Captain ${pilotNameValue} is not registered for launch.`
@@ -128,40 +129,40 @@ window.addEventListener("load", function() {
       const cargoMassValue = cargoMass.value
 
       //update pilot
-      if(pilotCheck = true) {
+      if(pilotCheck === true) {
       document.getElementById("pilotStatus").innerHTML = `Captain ${pilotNameValue} is registered and ready for launch.`
       }
-         else if(pilotCheck = false) {
+      else if(pilotCheck === false) {
             document.getElementById("pilotStatus").innerHTML = `Captain ${pilotNameValue} is NOT registered and ready for launch.`
          };
 
       //update copilot
-      if(copilotCheck = true) {
+      if(copilotCheck === true) {
       document.getElementById("copilotStatus").innerHTML = `Co-Pilot ${copilotNameValue} is registered and ready for launch.`
       }
-         else if(copilotCheck = false) {
+      else if(copilotCheck === false) {
             document.getElementById("pilotStatus").innerHTML = `Co-Pilot ${pilotNameValue} is NOT registered and ready for launch.`
          };
 
       //update fuel
 
-      if(fuelCheck = true) {
+      if(fuelCheck === true) {
          document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`
       }
-         else if(fuelCheck = false) {
+      else if(fuelCheck === false) {
             document.getElementById("fuelStatus").innerHTML = `Not enough fuel for journey`
          };
 
       //update cargo
 
-      if(massCheck = true) {
+      if(massCheck === true) {
          document.getElementById("cargoStatus").innerHTML = `Cargo level low enough for launch`
       }
-         else if(massCheck = false) {
+         else if(massCheck === false) {
             document.getElementById("cargoStatus").innerHTML = `Mass too high for journey`
          };
       
-      //check fuel
+      //Removed these lines to better address Katie's comments
       /*if(fuelLevelValue < 10000) {
          document.getElementById("fuelStatus").innerHTML = `Not enough fuel for journey`
          document.getElementsByClassName("h2").innerHTML = `Shuttle is not ready for launch`
@@ -193,12 +194,12 @@ window.addEventListener("load", function() {
             document.getElementById("launchStatus").innerHTML = `Shuttle is not ready for launch`;
             document.getElementById("launchStatus").style.color = "red";
             console.log("Check failed")
-         }
+         };
 
       document.getElementById("faultyItems").style.visibility = "visible";
    };
 
-   //Planet stuff
+   //removed these to replace with the block below
   /* function intGalactic() {
       fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
          response.json()
@@ -218,23 +219,26 @@ window.addEventListener("load", function() {
             });
    };*/
 
+   let index = Math.floor(Math.random()*5)
+
          this.fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
          response.json().then(function(json) {
             const missionTarget = document.getElementById("missionTarget");
-               console.log(json[3])
+               console.log(json[index])
             missionTarget.innerHTML = `
             <h2>Mission Destination</h2>
             <ol>
-               <li>Name: ${json[3].name}</li>
-               <li>Diameter: ${json[3].diameter}</li>
-               <li>Star: ${json[3].star}</li>
-               <li>Distance from Earth: ${json[3].distance}</li>
-               <li>Number of Moons: ${json[3].moons}</li>
+               <li>Name: ${json[index].name}</li>
+               <li>Diameter: ${json[index].diameter}</li>
+               <li>Star: ${json[index].star}</li>
+               <li>Distance from Earth: ${json[index].distance}</li>
+               <li>Number of Moons: ${json[index].moons}</li>
             </ol>
-            <img src="${json[3].image}">
+            <img src="${json[index].image}">
             `;
          })
       })
+
 
 
 }
