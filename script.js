@@ -142,6 +142,24 @@ window.addEventListener("load", function() {
          else if(copilotCheck = false) {
             document.getElementById("pilotStatus").innerHTML = `Co-Pilot ${pilotNameValue} is NOT registered and ready for launch.`
          };
+
+      //update fuel
+
+      if(fuelCheck = true) {
+         document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`
+      }
+         else if(fuelCheck = false) {
+            document.getElementById("fuelStatus").innerHTML = `Not enough fuel for journey`
+         };
+
+      //update cargo
+
+      if(fuelCheck = true) {
+         document.getElementById("massStatus").innerHTML = `Cargo level low enough for launch`
+      }
+         else if(fuelCheck = false) {
+            document.getElementById("fuelStatus").innerHTML = `Mass too high for journey`
+         };
       
       //check fuel
       /*if(fuelLevelValue < 10000) {
