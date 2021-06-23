@@ -87,7 +87,8 @@ window.addEventListener("load", function() {
             massCheck = false
          }
          else if(massCheck > 10000) {
-            fuelCheck = false}
+            fuelCheck = false
+         }
          else {
             massCheck = true
          };
@@ -147,7 +148,7 @@ window.addEventListener("load", function() {
          document.getElementById("fuelStatus").innerHTML = `Not enough fuel for journey`
          document.getElementsByClassName("h2").innerHTML = `Shuttle is not ready for launch`
       }
-      else if(fuelLevelValue > 1000) {
+      else if(fuelLevelValue > 10000) {
          document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`
          document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch!`
          document.getElementById("launchStatus").style.color = "green";
@@ -159,7 +160,7 @@ window.addEventListener("load", function() {
          document.getElementById("launchStatus").innerHTML = `Shuttle is not ready for launch`;
          document.getElementById("launchStatus").style.color = "red";
       }
-      else if(cargoMassValue < 1000) {
+      else if(cargoMassValue < 10000) {
          document.getElementById("cargoStatus").innerHTML = `Cargo mass low enough for launch`;
          document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch!`
          document.getElementById("launchStatus").style.color = "green";
