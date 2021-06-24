@@ -71,6 +71,7 @@ window.addEventListener("load", function() {
       }
          else if(isNaN(fuelLevelValue)) {
             fuelCheck = false
+            alert("Fuel must be a number.")
          }
          else if(fuelLevelValue < 10000) {
             fuelCheck = false
@@ -86,6 +87,7 @@ window.addEventListener("load", function() {
       }
          else if(isNaN(cargoMassValue)) {
             massCheck = false
+            alert("Cargo mass must be a number.")
          }
          else if(cargoMassValue > 10000) {
             massCheck = false
@@ -149,8 +151,11 @@ window.addEventListener("load", function() {
       if(fuelCheck === true) {
          document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`
       }
-      else if(fuelCheck === false) {
+      else if(fuelCheck === false && fuelLevelValue < 10000) {
             document.getElementById("fuelStatus").innerHTML = `Not enough fuel for journey`
+         }
+         else if(isNaN(fuelLevelValue)) {
+            document.getElementById("fuelStatus").innerHTML = `Fuel is not a number.`
          };
 
       //update cargo
@@ -158,8 +163,11 @@ window.addEventListener("load", function() {
       if(massCheck === true) {
          document.getElementById("cargoStatus").innerHTML = `Cargo level low enough for launch`
       }
-         else if(massCheck === false) {
+         else if(massCheck === false && cargoMassValue > 10000) {
             document.getElementById("cargoStatus").innerHTML = `Mass too high for journey`
+         }
+         else if(isNaN(cargoMassValue)) {
+            document.getElementById("cargoStatus").innerHTML = `Cargo mass is not a number.`
          };
       
       //Removed these lines to better address Katie's comments
